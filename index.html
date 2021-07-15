@@ -1,0 +1,218 @@
+<!-- Todo https://www.netflix.com/ru/title/80189685 -->
+
+<!--текст комментария-->
+<!--* текст комментария-->
+<!--Todo текст комментария-->
+<!--! текст комментария-->
+<!--? текст комментария-->
+<!--// текст комментария-->
+
+<!-- *двойные кавычки в документе. следующие документы делать с одинарными кавычками-->
+
+<!DOCTYPE html>
+<html lang="ru"> <!-- Объявление о том, что наполнение сайта в основном на русской языке -->
+
+
+<!-- <тег 1> </тег 1> - парные теги -->
+<head> <!-- В парном теге <head> (хэд) прописывается техническая информация сайта которая не видна пользователю сайта (кроме тега <title>) -->
+  <!-- <тег 2> - непарный тег -->
+  <meta charset="UTF-8"> <!-- Объявление о том, какая кодировка символов используется на сайте -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- данный мета тег объявляет о том, как сайт будет адаптироваться под разную ширину экрана пользователя -->
+  <title>Ведьмак - официальный сайт сериала</title> <!-- Тег <title> (тайтл) отвечает за заголовок сайта на вкладке страницы в браузере. Данную информацию пользователь сайта видит -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- подключен шрифт roboto. Обязательно покдлючать шрифт перед стилями, так как он применяется в стилях -->
+  <link rel="stylesheet" href="css/reset.css"> <!-- подключил библиотеку в которой уже прописаны все обнуляющие настройки применяемые браузером автоматически-->
+  <link rel="stylesheet" href="css/swiper.min.css"> <!--библиотека слайдера который переключает карточки серий-->
+  <link rel="stylesheet" href="css/jquery.fancybox.min.css"> <!--библиотека фансибокс который подключает трейлер к сайту-->
+  <link rel="stylesheet" href="css/animate.css"> <!--библиотека анимаций для пульсации фона кнопки-->
+  <link rel="stylesheet" href="css/style.css"> <!-- данное объявление подключает стили из файла style.css к файлу index.html -->
+</head>
+
+
+<body> <!-- в парном теге <body> (бади) прописывается информация которая будет видна пользователю сайта -->
+  <header> <!-- парный тег <header> (хэдер) отвечает за верх сайта (шапку сайта), в шапке обычно расположен логотип, навигация по сайту, главный контакт и ссылки на социальные сети -->
+    <div class="container"> <!-- парный тег <div> это пустой контейнер который легко будет двигать и маштабировать --> <!-- чтобы открыть такой контейнер сразу с классом и комментарием о закрытии применяется запрос: ".container|c" и нажимается enter -->
+      <div class="header">
+        <img src="img/logo.png" alt="Логотип: Ведьмак" class="logo"> <!-- непарный тег <img> объявляет изображение, где scr - это путь к файлу, а alt - это альтернативный тект который будет указан в случае, если картинка не прогрузится -->
+        
+        <nav class="menu-list"> <!-- Парный тег <nav> тоже самое, что и div, только со своим названием. В данном теге обычно используется навигация, ссылки на участки сайта -->
+          <a href="#" class="menu-link">Описание</a> <!-- парный тег <a> отвечает за ссылку --> <!-- Если ссылка временно никуда не ведет, то в hreaf вместо адреса указывается символ # -->
+          <a href="#" class="menu-link">Трейлер</a>
+          <a href="#" class="menu-link">Отзывы</a>
+        </nav>
+        
+        <div class="social"> <!-- (соушел) -->
+          <!-- а*3.social-link>img -->
+          <a href="#" class="social-link"><img src="img/social/twitter.svg" alt="Twitter"></a>
+          <a href="#" class="social-link"><img src="img/social/instagram.svg" alt="Instagram"></a>
+          <a href="#" class="social-link"><img src="img/social/facebook.svg" alt="Facebook"></a>
+        </div>
+        <!-- /.social -->
+      </div>
+      <!-- /.header -->
+
+      <div class="menu-button"><!--кнопка мобильного меню. бургер в друх положениях: обычная и активная-->
+        <!-- Именно див, а не баттон, так как браузер присваевает свои настрйки баттону результат отличется от макета -->
+      </div>
+      <!-- /.menu-button  -->
+    </div>
+    <!-- /.container -->
+  </header>
+    
+
+  <main> <!-- парный тег <main> (мэйн) в данном теге распологается вся основная информация сайта и обычна она занимает большее место на сайте и расположена по середине сайта после шапки. здесь содержится весь основной контент середины сайта -->
+    <div class="container">
+      <div class="main-content"> <!--здесь содержится два блока - это жанр,  заголовок, подзаголовок, рейтинг и кнопка смотреть онлайн и кнопка плей-->
+        <div class="content"> <!--Здесь содержится жанр, рейтинг, заголовок, подзаголовок и кнопка "смотреть онлайн"-->
+          <span class="genre"> <!--Парный тег <span> означает, что это просто текст--><!--В данном блоке находится жанр сериала-->2019, фэнтези</span>
+          
+          <div class="rating"> <!--блок с рейтингом-->
+            <div class="rating-stars"><!--блок со звездами-->
+              <img src="img/star.svg" alt="Star" class="star">
+              <img src="img/star.svg" alt="Star" class="star">
+              <img src="img/star.svg" alt="Star" class="star">
+              <img src="img/star.svg" alt="Star" class="star">
+              <img src="img/star.svg" alt="Star" class="star">
+              <img src="img/star.svg" alt="Star" class="star">
+              <img src="img/star.svg" alt="Star" class="star">
+              <img src="img/star-o.svg" alt="Star-o" class="star">
+              <img src="img/star-o.svg" alt="Star-o" class="star">
+              <img src="img/star-o.svg" alt="Star-o" class="star">
+            </div>
+            <!-- /.rating-stars -->
+            
+            <div class="rating-number"> <!--блок с цифрами рейтинга 7/10-->7/10</div>
+            <!-- /.rating-number -->
+          </div>
+          <!-- /.rating -->
+          <h1 class="main-title"><!--главный заголовок сериала-->Ведьмак</h1>
+          
+          <p class="main-description"><!--(дескрипшин) парный тег параграфа-->
+            Ведьмак Геральт, мутант и убийца чудовищ, на своей верной лошади
+            по кличке Плотва путешествует по Континенту. За тугой мешочек
+            чеканных монет этот мужчина избавит вас от всякой настырной
+            нечисти — хоть от чудищ болотных, оборотней и даже
+            заколдованных принцесс. 
+          </p>
+
+          <a data-fancybox href="https://www.youtube.com/watch?v=EUizTA1nrfA" class="button">Смотреть трейлер</a><!--Парный тег <a> означает, что это ссылка--> <!--подключен трейлер сериала с помощью двух библиотек: джейквери и фансибокс-->
+        </div>
+        <!-- /.content -->
+        <a data-fancybox href="https://www.youtube.com/watch?v=EUizTA1nrfA" class="play">
+          <img src="img/play.svg" alt="play" class="play-img">
+        </a>
+
+      </div>
+      <!-- /.main-content -->
+
+      <!-- Начало контейнера со слайдером переключающий карточки серий -->
+      <div class="series"> <!--блок со слайдером переключающим карточки серий сериала-->
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"> <!--Слайд 1-->
+              <div class="card series-1"> <!--Карточка серии. в нее входит превью серии, заголовок, подзаголовок -->
+              <span class="card-subtitle">Серия #1</span>
+              <h2 class="card-title">Начало конца</h2>
+            </div>
+            <!-- /.card -->
+            </div>
+            <!-- /.swiper-slide -->
+            <div class="swiper-slide"> <!--Слайд 2-->
+                <div class="card series-2">
+                <span class="card-subtitle">Серия #2</span>
+                <h2 class="card-title">Четыре марки</h2>
+              </div>
+              <!-- /.card -->
+            </div>
+            <!-- /.swiper-slide -->
+            <div class="swiper-slide"> <!--Слайд 3-->
+              <div class="card series-3">
+              <span class="card-subtitle">Серия #3</span>
+              <h2 class="card-title">Предательская луна</h2>
+            </div>
+            <!-- /.card -->
+            </div>
+            <!-- /.swiper-slide -->
+            <div class="swiper-slide"> <!--Слайд 4-->
+              <div class="card series-4">
+              <span class="card-subtitle">Серия #4</span>
+              <h2 class="card-title">Банкеты и ублюдки</h2>
+            </div>
+            <!-- /.card -->
+            </div>
+            <!-- /.swiper-slide -->
+            <div class="swiper-slide"> <!--Слайд 5-->
+              <div class="card series-5">
+              <span class="card-subtitle">Серия #5</span>
+              <h2 class="card-title">Желания из бутылки</h2>
+            </div>
+            <!-- /.card -->
+            </div>
+            <!-- /.swiper-slide -->
+            <div class="swiper-slide"> <!--Слайд 6-->
+              <div class="card series-6">
+              <span class="card-subtitle">Серия #6</span>
+              <h2 class="card-title">Редкие виды</h2>
+            </div>
+            <!-- /.card -->
+            </div>
+            <!-- /.swiper-slide -->
+            <div class="swiper-slide"> <!--Слайд 7-->
+              <div class="card series-7">
+              <span class="card-subtitle">Серия #7</span>
+              <h2 class="card-title">Перед падением</h2>
+            </div>
+            <!-- /.card -->
+            </div>
+            <!-- /.swiper-slide -->
+            <div class="swiper-slide"> <!--Слайд 8-->
+              <div class="card series-8">
+              <span class="card-subtitle">Серия #8</span>
+              <h2 class="card-title">Нечто большее</h2>
+            </div>
+            <!-- /.card -->
+            </div>
+            <!-- /.swiper-slide -->
+           </div>
+           <!-- /.swiper-wrapper -->
+        </div>
+        <!-- /.swiper-container -->
+        
+        <button class="arrow"> <!--Парный тег <button> означает, что это кнопка--> <!-- Стрелка переключающая слайды вперед. Пришлось ее вынести за пределы слайдера, так как все, что выходит за пределы размера слайдера обрезается свойством overflow: hidden -->
+        </button>
+      </div>
+      <!-- /.series -->
+    </div>
+    <!-- /.container -->
+  </main>
+    
+
+  <footer class="footer"> <!-- парный тег <footer> отвечает за низ сайта (подвал сайта) и в данном подвале распологается в основном правовая информация, контакты и ссылки на другие источники -->
+  <div class="container">
+    <div class="footer-content"> <!--блок в котором расположены два блока т.е. левая и правая части подвала-->
+      <div class="left"><!--левая часть подвала-->
+        <span class="copyright">© 2020 The Witcher. All right reserved.</span>
+      </div>
+      <!-- /.left -->
+      
+      <div class="right"><!--правая часть подвала-->
+        <nav class="footer-menu">
+          <a href="#" class="footer-link">Privacy Policy</a>
+          <a href="#" class="footer-link">Terms of Service</a>
+          <a href="#" class="footer-link">Legal</a>
+        </nav>
+      </div>
+      <!-- /.right -->
+    </div>
+    <!-- /.footer-content -->
+  </div>
+  <!-- /.container -->
+  </footer>
+  <script src="js/jquery-3.5.1.min.js"></script> <!--Подключение библиотеки джейквери для фансибокса-->
+  <script src="js/jquery.fancybox.min.js"></script> <!--Подключение библиотеки фансибокс для трейлера-->
+  <script src="js/swiper.min.js"></script> <!--Подключение библиотеки слайдера-->
+  <script src="js/main.js"></script> 
+</body>
+
+
+</html>

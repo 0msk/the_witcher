@@ -1,0 +1,450 @@
+/* одинарные кавычки в документе */
+/*
+селектор {
+  свойство: значение;
+  свойство: значение;
+}
+*/
+
+@font-face {/*Директива фонт фейс. подключает необходимое начертания шрифта локально, тоесть не из гугл фонт, а из папки со шрифтами*/
+  font-family: 'MasonChronicles';
+  src: url('../fonts/MasonChronicles.woff') format('woff'),
+       url('../fonts/MasonChronicles.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  background-color: #141218; /*присвоил цвет фона. цвет фона нужен для подстраховки, если фоновое изображение не прогрузится своевременно*/
+  /*настройки шрифтов*/
+  font-family: 'Roboto', sans-serif; /*объявил шрифт Roboto для всего текста в body т.е. в видимой части сайта*/
+  font-style: normal;
+  font-weight: normal;
+  color: #FFFFFF; /*цвет шрифта белый*/
+  /* /настройки шрифтов*/
+  /*настройки для подвала*/
+  min-height: 100vh; /* настройка для подвала сайта. задает минимальную высоту экрана для всего тела сайта 100. т.е. высота бади должна быть минимум весь экран*/
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* /настройки для подвала*/
+  /*настройки фонового изображения*/
+  background-image: url('../img/background.jpg');
+  background-repeat: no-repeat;
+  background-position: top right; /*прижимает фоновое изображение к верху и правой части*/
+}
+.container { /*селектор всех контейнеров*/
+  /* для того, чтобы увидеть границы можно использовать свойство и значение: "border: 1px solid red;"*/
+  width: 90%; /*задает постоянную ширину контента на экране для адаптива*/
+  max-width: 1140px; /*задал максимальную ширину контейнеру*/
+  margin: auto; /*задал автоматически распределенные равномерно отступы у контейнера, т.е. контейнер будет расположен строго посередине*/ 
+}
+
+/* *header. шапка */
+.header { /*контейнер в котором расположено наполнение шапки*/
+  display: flex; /*распологает контент горизонтально и присваивает контенту значение, при котором к нему можно применять определеные свойства описанные ниже*/
+  align-items: center; /*распологает контент ровно по горизонтали друг к другу*/
+  justify-content: space-between; /*распределяет контент с равным расстоянием друг от друга, но прижимая крайние объекты к краям слева и справа*/
+  padding-top: 60px; /*отступ контейнера сверху на 60 пикселей*/
+  margin-bottom: 90px; /*шапка толкаен контент снизу на 90 пикселей*/
+}
+.menu-list { /*контейнер навигации с ссылками по сайту. расположен в шапке*/
+  margin-right: auto; /*прижимает контейнер к левому краю*/
+  margin-left: 67px; /*отодвигает контейнер на 67 пикселей от левого края*/
+}
+.menu-link { /*ссылки в контейнере навигации в шапке*/
+  font-size: 14px; /*размер шрифта 14, пикселей*/
+  line-height: 16px; /*высота строки 16 пикселей*/
+  color: #FFFFFF; /*по какой то причине игнорируется присвоение значение белого цвета в селекторе body. пришлось дополнительно прописать здесь*/
+  text-decoration: none; /*убирает подчеркивание у ссылок*/
+  margin-right: 24px; /* ссылки меню отталкиваются справа на 24 пикселя*/
+}
+.social-link { /*иконки социальных сетей в шапке*/ 
+margin-left: 20px; /* отступ иконок слева на 20 пикселей*/
+text-decoration: none; /* убрал невидимую обводку у ссылок-иконок социльных сетей*/
+}
+.menu-button { /*мобильное меню*/
+  display: none; /*по умолчанию мобильное меню отключено и будет видна только при настройках адаптива которые прописываются в ксс файле*/
+}
+
+/* *main. главный контент */
+.main-content { /*<!--здесь содержится два блока - это жанр,  заголовок, подзаголовок, рейтинг и кнопка смотреть онлайн и кнопка плей-->*/
+  display: flex;
+  align-items: center;
+  margin-bottom: 85px;
+}
+.genre {/*блок с жанром в контейнере мейн*/
+  font-size: 14px;
+  line-height: 16px;
+  display: block; /*так как тег span строчный, то к нему не применяются отступы в виде margina по этому применил свойство и значение dosplay block, чтобы тег стал блочным*/
+  margin-bottom: 16px; /*жанр толкает контент ниже на 16 пикселей*/
+}
+.rating {/*блок рейтинга где находятся здезды и цифры рейтинга*/
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.rating-number {/*цифры в рейтинге*/
+  font-size: 12px;
+  line-height: 14px;
+  margin-left: 9px; /*цифры рейтинга отталкиваются от звезд рейтинга*/
+}
+.main-title { /*главный заголовок сайта*/
+  font-family: 'MasonChronicles', serif; /*объявил, что шрифт будет использоваться MasonChronicles, а если он по какой-то причине не прогрузится, то будет применен любой шрифт с засечками, а за это отвечает значение serif*/
+  font-size: 76px;
+  line-height: 89px;
+  margin-bottom: 10px;
+}
+.main-description { /*описание сериала под заголовком*/
+  max-width: 458px;
+  font-size: 14px;
+  line-height: 21px;
+  margin-bottom: 40px;
+}
+.button { /*кнопка "Смотреть онлайн" под описанием сериала*/
+  display: inline-block;
+  background-color: #9D2929;
+  border-radius: 8px; /*отвечает за скругление кнопки*/
+  color: #FFFFFF;
+  border: none; /*убирает обводку кнопки*/
+  padding: 22px 72px; /*отступы кнопки слева и справа по 22, а сверху и снизу по 72 пикселя*/
+  font-weight: bold; /*начертание шрифта жирное*/
+  font-size: 14px;
+  line-height: 16px;
+  text-decoration: none;
+}
+.play { /*Кнопка плей*/
+  display: flex;
+  justify-content: center;
+  background: #9D2929;
+  width: 100px; /*Ширина*/
+  height: 100px; /*Высота*/
+  border-radius: 50%;
+  border: none;
+  position: relative; /*указывается для того, чтобы псевдоэлемент before позиционировался относительно кнопки play*/
+  margin: auto; /*распологает кнопку плей ровной посередине своего блока*/
+}
+.play-img { /*изображение кнопки плей (белый треугольник)*/
+  position: relative; /*указано для того, чтобы кнопка была ближе чем, чем фон кнопки плей и псевдоэлемента кнопки, иначе она была бы перекрыта*/
+  transform: translateX(5px); /*смещает положение изображения кнопки по горизонтали на 5 пикселей вправо*/
+  width: 40%; /*размер картинки плей*/
+}
+.play:before {/*псевдоэлемент бефо. полупрозрачный круг на фоне кнопки плей*/
+  content: ''; /*Указывает о том, что нет содержимого*/
+  background: #9D2929;
+  opacity: 0.5; /*присваивает прозрачность*/
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  border: none;
+  position: absolute; /*указывается для того, чтобы псевдоэлемент before позиционировался относительно кнопки play*/
+  left: -16px; /*Двигает псевдоэлемент относительно кнопки плей на 16 пикслей в обратную сторону левого края*/
+  top: -16px; /*Двигает псевдоэлемент относительно кнопки плей на 16 пикслей в обратную сторону верхнего края*/
+  animation: pulse 0.5s ease-in-out 0.5s infinite; /*пульсация фона кнопки*/ /*animation: название анимации, со скоростью пол секунд, из пустоты, с задержкой в пол секунды, бесконечный цикл */
+}
+
+/* *slider */
+.series { /*блок с карточками серий и кнопкой переключения*/
+  display: flex;
+  align-items: center;
+  margin-bottom: 99px; /*расстояние между слайдером и футером*/
+  position: relative; /*Чтобы стрелка переключающая слайды была привязана к блоку*/
+  max-width: 420px; /*обозначает максимальную ширину контейнера где помещаются слайды*/
+}
+/* !Баг. При некоторых размерах экрана видно часть третьего слайда, уменьшая max-width у .series помогает убрать часть третьего слайда, но только в одном размере экрана. В общей картине это не помогает */
+.swiper-container { /*контейнер слайдера*/
+  max-width: 450px; /*Указывает максимальную ширину контейнера распологающего в себе слайды*/
+  margin-left: 0; /*прижимает контейнер с левому краю*/
+}
+.card { /*карточка серии сериала*/
+  width: 164px;
+  height: 113px;
+  border-radius: 8px;
+  display: flex; /*позволяет управлять номером серии и названием серии с помощью флексбокс*/
+  flex-direction: column; /* выстраивает номер и название друг за другом сверху вниз колонкой*/
+  justify-content: flex-end; /*выравнивает номер и название по нижнему краю карточки*/
+  padding: 13px; /*добавляет воздуха от краев карточки по макету чтоб заголовок и подзаголовок были по макету*/
+  margin-right: 30px; /*рсстояние между карточками 30пикселей*/
+}
+.series-1 {/*слайд 1*/
+  background: linear-gradient(180deg, rgba(20, 18, 24, 0.5) 0%, #2D2D2D 100%), url('../img/series/series-1.jpg');/*добавлен градиент на фон превью, и ссылка на само превью*/
+  background-repeat: no-repeat; /*делает так, чтобы изображение не повторялось*/
+  background-size: cover; /* изображение должно быть растянуто равномерно*/
+  background-position: center center; /* изображение позиционируется центрально*/
+}
+.series-2 {
+  background: linear-gradient(180deg, rgba(20, 18, 24, 0.5) 0%, #2D2D2D 100%), url('../img/series/series-2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.series-3 {
+  background: linear-gradient(180deg, rgba(20, 18, 24, 0.5) 0%, #2D2D2D 100%), url('../img/series/series-3.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.series-4 {
+  background: linear-gradient(180deg, rgba(20, 18, 24, 0.5) 0%, #2D2D2D 100%), url('../img/series/series-4.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.series-5 {
+  background: linear-gradient(180deg, rgba(20, 18, 24, 0.5) 0%, #2D2D2D 100%), url('../img/series/series-5.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.series-6 {
+  background: linear-gradient(180deg, rgba(20, 18, 24, 0.5) 0%, #2D2D2D 100%), url('../img/series/series-6.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.series-7 {
+  background: linear-gradient(180deg, rgba(20, 18, 24, 0.5) 0%, #2D2D2D 100%), url('../img/series/series-7.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.series-8 {
+  background: linear-gradient(180deg, rgba(20, 18, 24, 0.5) 0%, #2D2D2D 100%), url('../img/series/series-8.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.card-subtitle { /*номер серии*/
+  font-size: 10px;
+  line-height: 12px;
+  margin-bottom: 2px;
+}
+.card-title { /*название серии*/
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+}
+.arrow { /*изображение стрелка кнопки переключения карточек серий*/
+  width: 32px;
+  height: 23px;
+  border: none;
+  background-image: url('../img/arrow.svg'); /*добавить само изображение стрелки*/
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent; /*делает фон изображения ппрозрачным*/
+  position: absolute;
+  top: 50%;
+  right: -32px;
+}
+
+/* *footer. подвал сайта */
+.footer {
+  background: #141218;
+  padding: 20px 0;
+  margin-top: auto; /*прижимает футер к нижней части экрана*/
+}
+.footer-content {/*блок с левой и правой частями футера*/
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.copyright { /*текст левой части футера*/
+  color: #3A383D;
+  font-size: 14px;
+  line-height: 20px;
+}
+.footer-link { /*ссылки правой части футера*/
+  text-decoration: none;
+  color: #3A383D;
+  margin-left: 25px;/*расстояние между ссылками*/
+  font-size: 14px;
+  line-height: 20px;
+}
+
+/* *Responsive. Настройки адаптива */
+@media (max-width: 760px)/*отключение кнопки плей и изменение футера, расположения фонового иобоажения*/ { /*данное правило означает, что если ширина экрана меньше чем 760 пикселей, то в таком случае применить следующие правила*/
+  body {
+    background-position: top right 20%; /*изменение расположение фонового изображения*/
+  }
+  .play {
+    display: none; /*убирает кнопку плей*/
+  }
+  .footer-content {
+    flex-direction: column; /*выстраивает в подвале копирайт и ссылки колонкой*/
+    align-items: flex-start; /*копирайт и ссылки прижимаются к левому краю*/
+  }
+  .copyright {
+    display: block;/*так как используется тег спан, чтобы применился отступ снизу, необходимо применить дисплей блок*/
+    margin-bottom: 8px; /*отступ между копирайтом и ссылками в подвале сайта */
+  }
+  .footer-link:first-child { /*псевдоэлемент отвечающий за первый элемент*/
+    margin-left: 0; /*убирает прежний отступ влево у первой ссылки в подвале сайта*/
+  }
+}
+@media (max-width: 560px) /*создание мобильного меню, изменение главного контента и слайдера, расположения фонового изображения*/ {
+  
+  /* *создание мобильной кнопки (бургера) которая включает ММ*/
+  .menu-button { /* центральная полоска бургера*/
+    display: block; /*делает видимым ММ так как ранее было правило дисплей нон*/
+    position: absolute; /*позиционируется относительно шапки*/
+    top: 50px;
+    right: 35px;
+    width: 30px;
+    height: 2px;
+    background-color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+  }
+  .menu-button:before { /*верхняя полоска бургера*/
+    content: "";
+    display: block;
+    position: absolute; /*позиционируется относительно шапки*/
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 2px;
+    background-color: #FFFFFF;
+    border: none;
+    margin-top: -7px; /* отступ верхней полоски бургера от центральной полоски*/
+    transition: transform 0.2s; /*добавляет плавность изменения бургера с полосок горизонтальных на крестик*/
+  }
+  .menu-button:after { /*нижняя полоска бургера*/
+    content: "";
+    display: block;
+    position: absolute; /*позиционируется относительно шапки*/
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 2px;
+    background-color: #FFFFFF;
+    border: none;
+    margin-top: 7px; /* отступ нижней полоски бургера от центральной полоски*/
+    transition: transform 0.2s; /*добавляет плавность изменения бургера с полосок горизонтальных на крестик*/
+  }
+  .menu-button-active { /*при нажатии на бургер мобильное меню становится крестиком вместо полосок [с помощью js]*/
+    height: 0; /*позволяет скрыть среднюю полоску у бургера в активном положении меню*/
+  }
+  .menu-button-active:before { /*поворачиваю верхнюю полоску бургера чтобы сформировать крестик*/
+    transform: rotate(45deg); /*поворачивает верхнюю полоску бургера на 45 градусов*/
+    margin: 0; /*убирает отступ у полоски делая ее по центру*/
+  }
+  .menu-button-active::after { /*поворачиваю нижнюю полоску бургера чтобы сформировать крестик*/
+    transform: rotate(-45deg); /*поворачивает верхнюю полоску бургера на 45 градусов*/
+    margin: 0; /*убирает отступ у полоски делая ее по центру*/
+  }
+/* Чтобы увидеть результат изменения полосок бургера на крестик нужно в html файле добавить класс menu-button-active в div мобильного меню: "<div class="menu-button menu-button-active">" */
+
+  /* *создание мобильного меню */
+  .header { /*изменение шапки сайта в мобильное меню*/
+    display: none; /*изначально мобильное прилоение не видно, чтобы оно стало видно необходимо нажать на бургер и мобильное меню станет видимым*/
+    position: absolute; /*позиционируется относительно бади*/
+    flex-direction: column; /*выстраивает объекты в мобильном меню колонкой*/
+    top: 0; /*прижимает мобильное меню к верху бади*/
+    right: 0; /*прижимает мобильное меню к правому краю бади*/
+    background-color: #9D2929;
+    width: 250px; /*ширина мобильного меню*/
+    padding-bottom: 40px;
+  }
+  .header-active {/*хэдэр эктив. Мобильное меню становится видимым в положении когда его активировали при нажатии на бургер [с помощью js]*/
+    display: flex;
+    padding-top: 39px;
+    margin-bottom: 0; /*убирает ненужный отступ которое ни на что не влияет снизу активного мобильного меню */
+  }
+  .logo { /*изменил отступ слину у логотипа в мобильном меню*/
+    margin-bottom: 25.4px;
+  }
+  .menu-list {/*блок с ссылками навигации мобильного меню*/
+    margin: auto; /*располагает ссылки мобильного меню равномерно по центру*/
+    order: 2; /*меняет местами ссылки навигации с социальными ссылками местами делая ссылки навигации на втором месте, а социальные ссылки на первом месте*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   }
+  .menu-link {/*ссылки навигации мобильного меню*/
+    margin-right: 0; /*убирает у ссылок мобильного меню отступ справа*/
+    margin-bottom: 17px;
+  }
+  .menu-link:last-child {/*последняя ссылка навигации мобильного меню*/
+    margin-bottom: 0;
+  }
+  .social { /*блок с социальными ссылкаи мобильного меню*/
+    order: 1; /*меняет местами ссылки навигации с социальными ссылками местами делая ссылки навигации на втором месте, а социальные ссылки на первом месте*/
+    margin-bottom: 22.22px;
+  }
+  .social-link:first-child { /*отключил у первой социальной ссылки оступ слева в мобильном меню*/
+    margin-left: 0; /*отключает у первой социальной ссылки отступ слева*/
+  }
+
+  /* *Изменениие главного контента сайта */
+  body { /*изменение расположение фонового изображения*/
+    background-position: top right 28%;
+  }
+  .main-content { /*убрал ненужный отступ у контейнера с контентом главным*/
+    margin-top: 196px; /*отталкивается весь контент от верха*/
+  }
+  .rating { /*изменил нижний отступ у рейтинга*/
+    margin-bottom: 9px;
+  }
+  .main-title { /*уменьшил размер заголовка*/
+    font-size: 56px;
+    line-height: 66px;
+  }
+  
+  /* *Изменение слайдера */
+  .series { /*изменение максимального размера контейнера слайдера*/
+    max-width: 220px
+  }
+}
+@media (max-width: 480px) { /*изменение расположения фонового изображения*/
+  body {
+    background-position: top right 47%; /*изменение расположение фонового изображения*/
+  }
+}
+@media (max-width: 414px) /*iPhone 6/7/8 Plus*/ { /*уменьшены отступы снизу у описания и кнопки смотреть онлайн*/
+ .main-content { /*контейнер с основным содержимым сайта*/
+   margin-bottom: 30px;
+ }
+ .main-description { /*описание сериала*/
+  margin-bottom: 30px;
+ }
+}
+@media (max-width: 320px) /* iPhone 5/SE*/ {
+  .header-active {/*активное мобильное меню*/
+    width: 100%; /*мобильное меню будет на всю ширину экрана*/
+  }
+  .menu-button { /*бургер*/
+    right: 20px;
+  }
+  .genre { /*жанр*/
+    margin-bottom: 8px;
+  }
+  .rating { /*рейтинг*/
+    margin-bottom: 3px;
+  }
+  .main-content { /*контейнер с основным содержимым сайта*/
+    margin-top: 210px;
+  }
+  .main-title { /*Заголовок*/
+    font-size: 52px;
+    line-height: 56px;
+  }
+  .main-description { /*описание сериала*/
+    margin-bottom: 20px;
+  }
+  .button {/*кнопка смотреть онлайн*/
+    width: 100%; /*ширина кнопки на всю ширину контейнера*/
+    padding: 20px 0; /*убрал воздух слево и справо у кнопки чтоб текст был в строчку*/
+    font-size: 12px;
+    line-height: 14px;
+  }
+  .series { /*сблок с сериями*/
+    margin-bottom: 60px;
+  }
+  .footer-menu {/*родитель ссылок в подвале*/
+    display: flex;
+    flex-wrap: wrap; /*переносит на новую строку ссылки если не помещаются*/
+  }
+  .footer-link { /*ссылки в подвале*/
+    width: 50%; /*ссылки в подвале будет занимать 50% от ширины родителя*/
+    margin-left: 0; /*убирает отступы*/
+  }
+}
